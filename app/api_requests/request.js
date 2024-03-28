@@ -1,11 +1,15 @@
+const url=process.env.ROOT_URL || "http://localhost:3000/api/";
+
 export const getApiResponse=async()=>{//api request to GET task data
+    
+    const options={
+        headers:{
+            accept:"application/json"
+        },
+        cache:"no-store"
+    };
     try {
-        const res=await fetch("http://localhost:3000/api/",{
-            headers:{
-                accept:"application/json"
-            },
-            cache:"no-store"
-        });
+        const res=await fetch(url,options);
         const data=res.ok ? await res.json() : Promise.reject(res);
         return data;
     } catch (error) {
@@ -15,7 +19,7 @@ export const getApiResponse=async()=>{//api request to GET task data
 
 export const addTaskRequest=async(req)=>{//api request to POST task data
     try{
-        const res=await fetch("http://localhost:3000/api/",{
+        const res=await fetch(url,{
             method:"POST",
             headers:{
                 accept:"application/json"
@@ -34,7 +38,7 @@ export const addTaskRequest=async(req)=>{//api request to POST task data
 
 export const updateTaskRequest=async(req)=>{//api request to PATCH task data
     try {
-        const res=await fetch("http://localhost:3000/api/",{
+        const res=await fetch(url,{
             method:"PATCH",
             headers:{
                 accept:"application/json"
@@ -54,7 +58,7 @@ export const updateTaskRequest=async(req)=>{//api request to PATCH task data
 
 export const deleteTaskRequest=async(req)=>{//api request to DELETE task data
     try {
-        const res=await fetch("http://localhost:3000/api/",{
+        const res=await fetch(url,{
             method:"DELETE",
             headers:{
                 accept:"application/json"
