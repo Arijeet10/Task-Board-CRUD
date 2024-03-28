@@ -1,15 +1,14 @@
-const url=process.env.ROOT_URL || "http://localhost:3000/api/";
+const url=process.env.ROOT_URL;
+
 
 export const getApiResponse=async()=>{//api request to GET task data
-    
-    const options={
-        headers:{
-            accept:"application/json"
-        },
-        cache:"no-store"
-    };
     try {
-        const res=await fetch(url,options);
+        const res=await fetch(url,{
+            headers:{
+                accept:"application/json"
+            },
+            cache:"no-store"
+        });
         const data=res.ok ? await res.json() : Promise.reject(res);
         return data;
     } catch (error) {

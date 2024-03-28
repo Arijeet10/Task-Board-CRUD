@@ -59,7 +59,6 @@ const TaskBoard = ({ tasks }) => {
     } else {
       const newArr = arr.filter((item) => {
         const dateArr = item.start_date.split("T"); //split the Time from start_date before compairing
-        console.log(dateArr[0]);
         if (dateArr[0] == dateValue.startDate) {
           //matching task start_date
           return item;
@@ -78,7 +77,6 @@ const TaskBoard = ({ tasks }) => {
         if (item.end_date !== null) {
           //check if end_date is null or not
           const dateArr = item.end_date.split("T"); //split Time from end_date before compairing
-          console.log(dateArr[0]);
           if (dateArr[0] == dateValue.endDate) {
             //matching task end_date
             return item;
