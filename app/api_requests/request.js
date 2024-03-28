@@ -1,4 +1,4 @@
-const url=process.env.NEXT_PUBLIC_ROOT_URL;
+const url=process.env.NEXT_PUBLIC_ROOT_URL || "http://localhost:3000/api/";
 
 
 export const getApiResponse=async()=>{//api request to GET task data
