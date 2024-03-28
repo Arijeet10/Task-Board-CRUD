@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchData();//call the api to fetch tasks data
-  }, [tasks])
+  }, [])
   
 
   return (
